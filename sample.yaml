@@ -1,0 +1,19 @@
+namespace: sample
+sample:
+  defines: runnable
+  metadata:
+    name: sample
+    description: Sample Java Application
+    icon: >-
+      https://images.vexels.com/media/users/3/166401/isolated/preview/a34a5bb81a8d5c7eed35b8147cd5832a-java-icon-by-vexels.png
+  containers:
+    sample:
+      build: .
+  services:
+    sample-8080/tcp:
+      container: sample
+      port: 8080
+      host-port: 8080
+      publish: false
+      protocol: TCP
+      description: HTTP port that the application is listening on
