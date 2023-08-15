@@ -1,0 +1,1 @@
+FROM maven:3.6.3-jdk-8 AS build\nCOPY src /usr/src/app/src\nCOPY pom.xml /usr/src/app\nRUN mvn -f /usr/src/app/pom.xml clean package\n\nFROM openjdk:8-jre-slim\nCOPY --from=build /usr/src/app/target/sample-0.0.1-SNAPSHOT.jar /usr/local/lib/app.jar\nEXPOSE 8080\nENTRYPOINT ["java","-jar","/usr/local/lib/app.jar"]
