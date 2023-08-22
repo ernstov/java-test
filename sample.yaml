@@ -1,0 +1,24 @@
+namespace: sample
+sample:
+  defines: runnable
+  metadata:
+    name: sample
+    description: Sample Java Application
+    icon: https://emojiapi.dev/api/v1/books.svg
+  containers:
+    sample:
+      build: .
+  services:
+    http:
+      container: sample
+      port: 8080
+      host-port: 8080
+      publish: false
+      protocol: TCP
+      description: HTTP port for the web application (default for Spring Boot)
+  variables:
+    java.version:
+      env: java.version
+      type: string
+      description: Java version to use when building the application
+      value: '1.8'
