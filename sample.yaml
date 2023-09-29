@@ -1,0 +1,29 @@
+namespace: sample
+sample:
+  defines: runnable
+  metadata:
+    name: sample
+    description: Sample Java Application
+    icon: https://emojiapi.dev/api/v1/robot.svg
+  containers:
+    sample:
+      build: .
+  services:
+    sample-8080-tcp:
+      container: sample
+      port: 8080
+      host-port: 8080
+      publish: false
+      protocol: TCP
+      description: web interface
+  variables:
+    java.version:
+      env: java.version
+      type: string
+      description: Sets the Java Version
+      value: '1.8'
+    server.port:
+      env: server.port
+      type: string
+      description: Sets the server port
+      value: '8080'
