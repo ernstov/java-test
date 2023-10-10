@@ -1,0 +1,2 @@
+REPO buildpacks.io-java-sample
+LOAD buildpacks.io-java-sample.yaml
