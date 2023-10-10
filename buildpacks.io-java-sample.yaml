@@ -1,0 +1,17 @@
+namespace: buildpacks.io-java-sample
+buildpacks.io-java-sample:
+  defines: runnable
+  metadata:
+    name: buildpacks.io-java-sample
+    description: A sample Java application to demonstrate Buildpacks.io
+    icon: https://emojiapi.dev/api/v1/robot.svg
+  containers:
+    buildpacks.io-java-sample:
+      build: .
+  services:
+    buildpacks.io-java-sample-8080-tcp:
+      container: buildpacks.io-java-sample
+      port: 8080
+      host-port: 8080
+      publish: false
+      protocol: TCP
