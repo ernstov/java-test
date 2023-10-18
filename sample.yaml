@@ -1,0 +1,10 @@
+namespace: sample
+sample:
+  defines: runnable
+  metadata:
+    name: sample
+    description: A sample Java Application built with Spring Boot
+    icon: https://emojiapi.dev/api/v1/robot.svg
+  containers:
+    sample:
+      build: .
